@@ -2,6 +2,9 @@
  
 This project is to use Apache Airflow to build data piplelines for a Redshift data warehouse. I implemented custom operators to stage the data, transform the data, and run checks on data quality. The [song data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/song_data/?region=us-west-2&tab=overview) and [log data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/log_data/?region=us-west-2&tab=overview) in S3 buckets have the same data structures as the ones in my previous project  [data-modeling-with-postgres](https://github.com/hello-lucy-wu/data-modeling-with-postgres#Data). 
 
+Here is the dag:
+<img width="1396" alt="Screen Shot 2020-03-15 at 10 22 01 PM" src="https://user-images.githubusercontent.com/12717064/76804887-cf1fdc00-67b3-11ea-957d-867abb796815.png">
+
 ### Table of Contents
 * [Tables](#Tables)
 * [Steps to run scripts](#Steps)
