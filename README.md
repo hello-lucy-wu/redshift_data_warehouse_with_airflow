@@ -29,7 +29,7 @@ Here is the dag:
 
 
 ### Steps 
-* create a running container, use volumes that map the directories on local machine where DAG definitions and plugins are hold, and the locations where Airflow reads them on the container `docker run -d -p 8080:8080 -v /Users/lucy/dev/data-science-nanodegree/airflow-project/dags:/usr/local/airflow/dags -v /Users/lucy/dev/data-science-nanodegree/airflow-project/plugins/:/usr/local/airflow/plugins puckel/docker-airflow webserver`
+* create a running container, map the directories on local machine, where DAG definitions and plugins are hold, to the locations where Airflow reads them on the container `docker run -d -p 8080:8080 -v /Users/lucy/dev/data-science-nanodegree/airflow-project/dags:/usr/local/airflow/dags -v /Users/lucy/dev/data-science-nanodegree/airflow-project/plugins/:/usr/local/airflow/plugins puckel/docker-airflow webserver`
 * go to `http://localhost:8080/admin/` to check the UI and set up a connection to your redshift cluster called `redshift`
 * If you want to kill the container, execute `docker ps` in terminal to get the container ID, and then execute `docker stop <container id>` to kill it
  
