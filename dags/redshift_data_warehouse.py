@@ -15,20 +15,19 @@ from helpers import SqlQueries
 
 
 default_args = {
-    'owner': 'lucy',
     'start_date':datetime.utcnow(),
     'depends_on_past': False, # The DAG does not have dependencies on past runs
-    'email': ['lucy.wu000@gmail.com'],
+    'email': [''],
     'email_on_failure': True,
     'email_on_retry': False, # Do not email on retry
-    # 'retries': 3, # On failure, the task are retried 3 times
+    'retries': 3, # On failure, the task are retried 3 times
     'retry_delay': timedelta(minutes=5), # Retries happen every 5 minutes
 }
 
 with DAG('redshift_data_warehouse_dag',
         default_args=default_args,
         description='Load and transform data in Redshift with Airflow',
-        schedule_interval='@once', # '0 * * * *',
+        schedule_interval='0 * * * *',
         catchup=False # Catchup is turned off
 ) as dag:
     start_operator = DummyOperator(task_id='Begin_execution')
