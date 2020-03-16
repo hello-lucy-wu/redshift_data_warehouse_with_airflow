@@ -5,4 +5,4 @@
  - kill a container `docker stop <container id>`
  - jump into running container’s command line `docker exec -ti <container ID> bash`
  - test individual tests as part of DAG and logs the output to the command line `airflow test <dag name> <task name> 2020-03-08`
- 
+ - UI `http://localhost:8080/admin/`
