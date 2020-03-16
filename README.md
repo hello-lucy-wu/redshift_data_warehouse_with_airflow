@@ -1,6 +1,6 @@
  ## Redshift Data Warehouse With Airflow
  
-This project is to use Apache Airflow to build data piplelines for a Redshift data warehouse. I implemented custom operators to stage the data, transform the data, and run checks on data quality. The [song data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/song_data/?region=us-west-2&tab=overview) and [log data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/log_data/?region=us-west-2&tab=overview) in S3 buckets have the same structures as the one in my previous project  [data-modeling-with-postgres](https://github.com/hello-lucy-wu/data-modeling-with-postgres#Data). 
+This project is to use Apache Airflow to build data piplelines for a Redshift data warehouse. I implemented custom operators to stage the data, transform the data, and run checks on data quality. The [song data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/song_data/?region=us-west-2&tab=overview) and [log data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/log_data/?region=us-west-2&tab=overview) in S3 buckets have the same data structures as the ones in my previous project  [data-modeling-with-postgres](https://github.com/hello-lucy-wu/data-modeling-with-postgres#Data). 
 
 ### Table of Contents
 * [Tables](#Tables)
