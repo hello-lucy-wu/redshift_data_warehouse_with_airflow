@@ -1,6 +1,6 @@
  ## Redshift Data Warehouse With Airflow
  
-This project is to use Apache Airflow to build data pipleline for a Redshift data warehouse. [song data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/song_data/?region=us-west-2&tab=overview) and [log data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/log_data/?region=us-west-2&tab=overview) are in S3. <br /><br />
+This project is to use Apache Airflow to build data pipleline for a Redshift data warehouse. The [song data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/song_data/?region=us-west-2&tab=overview) and [log data](https://s3.console.aws.amazon.com/s3/buckets/udacity-dend/log_data/?region=us-west-2&tab=overview) are in S3. <br /><br />
 The script, etl.py, reads data from S3 and transforms them to create five different tables(Users, Artists, Songs, Time and Songplays). Each of the tables are written to parquet files in a separate analytics directory on S3.  <br /><br /> Songs table files are partitioned by year and artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
 The data structures of tables are the same as the one in my previous project  [data-modeling-with-postgres](https://github.com/hello-lucy-wu/data-modeling-with-postgres#Data). 
 
