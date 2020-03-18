@@ -22,13 +22,13 @@ default_args = {
     'email_on_retry': False, # Do not email on retry
     'retries': 3, # On failure, the task are retried 3 times
     'retry_delay': timedelta(minutes=5), # Retries happen every 5 minutes
+    'catchup': False # Catchup is turned off
 }
 
-with DAG('redshift_data_warehouse_dag',
+with DAG('analytical_tables_dag',
         default_args=default_args,
         description='Load and transform data in Redshift with Airflow',
-        schedule_interval='0 * * * *',
-        catchup=False # Catchup is turned off
+        schedule_interval='0 * * * *'
 ) as dag:
     start_operator = DummyOperator(task_id='Begin_execution')
 
@@ -73,6 +73,7 @@ with DAG('redshift_data_warehouse_dag',
 
     load_songplays = LoadFactOperator(
         task_id='Load_songplays_fact_table',
+        table='songplays',
         insert_query=SqlQueries.songplays_table_insert,
         redshift_conn_id='redshift'
     )
@@ -87,7 +88,7 @@ with DAG('redshift_data_warehouse_dag',
         task_id='Load_users_dim_table',
         table='users',
         load_mode='truncate-insert',
-        insert_query=SqlQueries.users_table_insert,
+        select_query=SqlQueries.users_table_select,
         redshift_conn_id='redshift'
     )
 
@@ -101,7 +102,7 @@ with DAG('redshift_data_warehouse_dag',
         task_id='Load_songs_dim_table',
         table='songs',
         load_mode='truncate-insert',
-        insert_query=SqlQueries.songs_table_insert,
+        select_query=SqlQueries.songs_table_select,
         redshift_conn_id='redshift'
     )
 
@@ -115,7 +116,7 @@ with DAG('redshift_data_warehouse_dag',
         task_id='Load_artists_dim_table',
         table='artists',
         load_mode='truncate-insert',
-        insert_query=SqlQueries.artists_table_insert,
+        select_query=SqlQueries.artists_table_select,
         redshift_conn_id='redshift'
     )
 
@@ -129,7 +130,7 @@ with DAG('redshift_data_warehouse_dag',
         task_id='Load_time_dim_table',
         table='time',
         load_mode='truncate-insert',
-        insert_query=SqlQueries.time_table_insert,
+        select_query=SqlQueries.time_table_select,
         redshift_conn_id='redshift'
     )
 
